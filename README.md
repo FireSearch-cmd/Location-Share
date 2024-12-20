@@ -49,14 +49,3 @@
         }
     </script>
 </head>
-<body onload="getLocation()">
-    <h1>Share Your Location</h1>
-    <p id="message">Please wait while we retrieve your location...</p>
-</body>
-</html>
-
-<body onload="getLocation()">
-    <h1>Share Your Location</h1>
-    <p id="message">Please wait while we retrieve your location...</p>
-</body>
-</html>
