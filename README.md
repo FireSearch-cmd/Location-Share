@@ -5,27 +5,29 @@
     <script>
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(sendLocation, showError);
+                navigator.geolocation.getCurrentPosition(showLocation, showError);
             } else {
                 alert("Geolocation is not supported by this browser.");
             }
         }
 
-        function sendLocation(position) {
+        function showLocation(position) {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
 
-            // Send the location to your server (replace URL with your server's endpoint)
-            fetch('https://your-server-endpoint.com/location', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ latitude: lat, longitude: lon })
-            });
+            // Create a Google Maps link
+            const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
 
-            // Show confirmation
-            document.getElementById("message").innerHTML = "Your location has been shared!";
+            // Display the link on the webpage
+            const message = document.getElementById("message");
+            message.innerHTML = `
+                Location shared! <a href="${mapsLink}" target="_blank">View on Google Maps</a>
+            `;
+
+            // Optional: Auto-copy the link to clipboard
+            navigator.clipboard.writeText(mapsLink).then(() => {
+                alert("Google Maps link copied to clipboard!");
+            });
         }
 
         function showError(error) {
@@ -51,3 +53,4 @@
     <p id="message">Please wait while we retrieve your location...</p>
 </body>
 </html>
+
