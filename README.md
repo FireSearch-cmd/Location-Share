@@ -19,7 +19,7 @@
             const phoneNumber1 = "+447973445683"; // First phone number
             const phoneNumber2 = "+447887916427"; // Second phone number
 
-            // Create SMS links for both numbers
+          // Create SMS links for both numbers
             const smsLink1 = `sms:${phoneNumber1}?body=I%20am%20here%20at%20https://www.google.com/maps?q=${lat},${lon}`;
             const smsLink2 = `sms:${phoneNumber2}?body=I%20am%20here%20at%20https://www.google.com/maps?q=${lat},${lon}`;
 
@@ -49,12 +49,6 @@
         }
     </script>
 </head>
-<body onload="getLocation()">
-    <h1>Share Your Location</h1>
-    <p id="message">Please wait while we retrieve your location...</p>
-</body>
-</html>
-
 <body onload="getLocation()">
     <h1>Share Your Location</h1>
     <p id="message">Please wait while we retrieve your location...</p>
