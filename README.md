@@ -5,22 +5,29 @@
     <script>
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(createSmsLink, showError);
+                navigator.geolocation.getCurrentPosition(createSmsLinks, showError);
             } else {
                 alert("Geolocation is not supported by this browser.");
             }
         }
 
-        function createSmsLink(position) {
+        function createSmsLinks(position) {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
 
-            // Create SMS link
-            const smsLink = `sms:+447973445683?body=I%20am%20here%20at%20https://www.google.com/maps?q=${lat},${lon}`;
+            // Replace with your phone numbers
+            const phoneNumber1 = "+447973445683"; // First phone number
+            const phoneNumber2 = "+447887916427"; // Second phone number
 
-            // Display SMS link on the page
-            document.getElementById("message").innerHTML = `
-                <a href="${smsLink}">Share Location via SMS</a>
+            // Create SMS links for both numbers
+            const smsLink1 = `sms:${phoneNumber1}?body=I%20am%20here%20at%20https://www.google.com/maps?q=${lat},${lon}`;
+            const smsLink2 = `sms:${phoneNumber2}?body=I%20am%20here%20at%20https://www.google.com/maps?q=${lat},${lon}`;
+
+            // Display the links on the webpage
+            const message = document.getElementById("message");
+            message.innerHTML = `
+                <p><a href="${smsLink1}">Send Location to Number 1</a></p>
+                <p><a href="${smsLink2}">Send Location to Number 2</a></p>
             `;
         }
 
@@ -42,6 +49,12 @@
         }
     </script>
 </head>
+<body onload="getLocation()">
+    <h1>Share Your Location</h1>
+    <p id="message">Please wait while we retrieve your location...</p>
+</body>
+</html>
+
 <body onload="getLocation()">
     <h1>Share Your Location</h1>
     <p id="message">Please wait while we retrieve your location...</p>
