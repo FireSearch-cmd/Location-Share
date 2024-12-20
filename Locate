@@ -5,27 +5,30 @@
     <script>
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(sendLocation, showError);
+                navigator.geolocation.getCurrentPosition(createSmsLinks, showError);
             } else {
                 alert("Geolocation is not supported by this browser.");
             }
         }
 
-        function sendLocation(position) {
+        function createSmsLinks(position) {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
 
-            // Send the location to your server (replace URL with your server's endpoint)
-            fetch('https://your-server-endpoint.com/location', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ latitude: lat, longitude: lon })
-            });
+            // Replace with your phone numbers
+            const phoneNumber1 = "+447973445683"; // First phone number
+            const phoneNumber2 = "+447887916427"; // Second phone number
 
-            // Show confirmation
-            document.getElementById("message").innerHTML = "Your location has been shared!";
+          // Create SMS links for both numbers
+            const smsLink1 = `sms:${phoneNumber1}?body=I%20am%20here%20at%20https://www.google.com/maps?q=${lat},${lon}`;
+            const smsLink2 = `sms:${phoneNumber2}?body=I%20am%20here%20at%20https://www.google.com/maps?q=${lat},${lon}`;
+
+            // Display the links on the webpage
+            const message = document.getElementById("message");
+            message.innerHTML = `
+                <p><a href="${smsLink1}">Send Location to Number 1</a></p>
+                <p><a href="${smsLink2}">Send Location to Number 2</a></p>
+            `;
         }
 
         function showError(error) {
