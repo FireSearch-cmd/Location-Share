@@ -5,29 +5,23 @@
     <script>
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showLocation, showError);
+                navigator.geolocation.getCurrentPosition(createSmsLink, showError);
             } else {
                 alert("Geolocation is not supported by this browser.");
             }
         }
 
-        function showLocation(position) {
+        function createSmsLink(position) {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
 
-            // Create a Google Maps link
-            const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
+            // Create SMS link
+            const smsLink = `sms:+44XXXXXXXXXX?body=I%20am%20here%20at%20https://www.google.com/maps?q=${lat},${lon}`;
 
-            // Display the link on the webpage
-            const message = document.getElementById("message");
-            message.innerHTML = `
-                Location shared! <a href="${mapsLink}" target="_blank">View on Google Maps</a>
+            // Display SMS link on the page
+            document.getElementById("message").innerHTML = `
+                <a href="${smsLink}">Share Location via SMS</a>
             `;
-
-            // Optional: Auto-copy the link to clipboard
-            navigator.clipboard.writeText(mapsLink).then(() => {
-                alert("Google Maps link copied to clipboard!");
-            });
         }
 
         function showError(error) {
@@ -53,4 +47,3 @@
     <p id="message">Please wait while we retrieve your location...</p>
 </body>
 </html>
-
