@@ -16,7 +16,7 @@
             const lon = position.coords.longitude;
 
             // Create SMS link
-            const smsLink = `sms:+44XXXXXXXXXX?body=I%20am%20here%20at%20https://www.google.com/maps?q=${lat},${lon}`;
+            const smsLink = `sms:+447973445683?body=I%20am%20here%20at%20https://www.google.com/maps?q=${lat},${lon}`;
 
             // Display SMS link on the page
             document.getElementById("message").innerHTML = `
