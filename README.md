@@ -25,7 +25,7 @@
             // Display the links on the webpage
             const message = document.getElementById("message");
             message.innerHTML = `
-                <p><a href="${smsLink1}">Send Location to Number</a></p>
+                <p><a href="${smsLink1}">Send Location to Number 1</a></p>
                 <p><a href="${smsLink2}">Send Location to Number 2</a></p>
             `;
         }
