@@ -19,7 +19,7 @@
             const phoneNumber2 = "+447580677412"; // Second phone number 447887916427
 
           // Create SMS links for both phone numbers
-            const smsLink1 = `sms:${phoneNumber1},${phoneNumber2}??body=I%20am%20here%20at%20https://www.google.com/maps?q=${lat},${lon}`;
+            const smsLink1 = `sms:${phoneNumber1},${phoneNumber2}?body=I%20am%20here%20at%20https://www.google.com/maps?q=${lat},${lon}`;
             const smsLink2 = `sms:${phoneNumber2}?body=I%20am%20here%20at%20https://www.google.com/maps?q=${lat},${lon}`;
 
             // Display the links on the webpage
