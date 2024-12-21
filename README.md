@@ -16,7 +16,7 @@
 
             // Replace with your phone numbers
             const phoneNumber1 = "+447973445683"; // First phone number
-            const phoneNumber2 = "+447887916427"; // Second phone number
+            const phoneNumber2 = "+447580677412"; // Second phone number 447887916427
 
           // Create SMS links for both phone numbers
             const smsLink1 = `sms:${phoneNumber1}?body=I%20am%20here%20at%20https://www.google.com/maps?q=${lat},${lon}`;
@@ -25,7 +25,7 @@
             // Display the links on the webpage
             const message = document.getElementById("message");
             message.innerHTML = `
-                <p><a href="${smsLink1}">Send Location to Number 1</a></p>
+                <p><a href="${smsLink1} & ${smsLink2}">Send Location to Number</a></p>
                 <p><a href="${smsLink2}">Send Location to Number 2</a></p>
             `;
         }
